@@ -2,13 +2,13 @@
 # Var 5
 # Определить, есть ли среди заданных целых чисел A, B, C, D хотя бы одно нечётное.
 
-a = int(input("Введите целое число A: \n"))
-b = int(input("Введите целое число B: \n"))
-c = int(input("Введите целое число C: \n"))
-d = int(input("Введите целое число D: \n"))
-
-if a % 2 != 0 or b % 2 != 0 or c % 2 != 0 or d % 2 != 0:
-    print("Attention, there is an odd number!")
+# a = int(input("Введите целое число A: \n"))
+# b = int(input("Введите целое число B: \n"))
+# c = int(input("Введите целое число C: \n"))
+# d = int(input("Введите целое число D: \n"))
+#
+# if a % 2 != 0 or b % 2 != 0 or c % 2 != 0 or d % 2 != 0:
+#     print("Attention, there is an odd number!")
 
 # Var 13
 # Для натурального числа К напечатать фразу «мы нашли К грибов в лесу»,
@@ -20,9 +20,10 @@ if k == 0:
     print("Мы не нашли грибов", end=" ")
 else:
     print("мы нашли " + str(k), end=" ")
-    if k == 1:
+    num_k = k%10
+    if num_k == 1:
         print("гриб", end=" ")
-    elif 1 < k < 5:
+    elif 1 < num_k < 5:
         print("гриба", end=" ")
     else:
         print("грибов", end=" ")
