@@ -89,7 +89,7 @@ class House:
                 print("***")
                 House.display_info_house(house)
         else:
-            print(f"There aren't any houses with {rooms_count} rooms.")
+            print(f"Квартир с таким количеством комнат ({rooms_count}) не найдено.")
         print("*****")
 
     @classmethod
@@ -100,7 +100,7 @@ class House:
             for house in floor:
                 House.display_info_house(house)
         else:
-            print(f"There aren't any flats on such floors.")
+            print(f"Квартир в таком промежутке этажей не найдено.")
         print("*****")
 
 
@@ -116,9 +116,9 @@ all_houses = [
     House(76, 72, 5, 3, "ул. Маркса", "монолит", 3)
 ]
 
-rooms_count = int(input("Enter number of rooms: "))
+rooms_count = int(input("Введите количество комнат: "))
 House.display_houses_by_room_qty(all_houses, rooms_count)
 
-min_floor = int(input("Enter minFloor: "))
-max_floor = int(input("Enter maxFloor: "))
+min_floor = int(input("Введите минимально допустимый этаж: "))
+max_floor = int(input("Введите максимально допустимый этаж: "))
 House.display_flats_by_floor_and_qty_rooms(all_houses, rooms_count, min_floor, max_floor)
