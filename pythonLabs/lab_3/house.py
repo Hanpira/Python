@@ -10,11 +10,13 @@
 
 from datetime import datetime
 
+
 class House:
     _id__autoincrement = 1
+
     def __init__(self, flat_num, square, floor, qty_rooms, street, build_type, years_of_usage):
         self.__id = House._id__autoincrement
-        House._id__autoincrement +=1
+        House._id__autoincrement += 1
         self.__flat_num = flat_num
         self.__square = square
         self.__floor = floor
@@ -23,7 +25,7 @@ class House:
         self.__build_type = build_type
         self.__years_of_usage = years_of_usage
 
-# Methods get
+    # Methods get
     def get_flat_num(self):
         return self.__flat_num
 
@@ -42,7 +44,7 @@ class House:
     def get_years_of_usage(self):
         return self.__years_of_usage
 
-# Methods set
+    # Methods set
     def set_flat_num(self, flat_num):
         self.__flat_num = flat_num
 
@@ -84,21 +86,23 @@ class House:
         rooms_qty = [house for house in all_houses if house.__qty_rooms == rooms_count]
         if rooms_qty:
             for house in rooms_qty:
-               print("***")
-               House.display_info_house(house)
+                print("***")
+                House.display_info_house(house)
         else:
             print(f"There aren't any houses with {rooms_count} rooms.")
         print("*****")
 
     @classmethod
     def display_flats_by_floor_and_qty_rooms(cls, all_houses, rooms_count, min_floor, max_floor):
-        floor = [house for house in all_houses if house.__qty_rooms == rooms_count and house.__floor >= min_floor and house.__floor <= max_floor]
+        floor = [house for house in all_houses if
+                 house.__qty_rooms == rooms_count and house.__floor >= min_floor and house.__floor <= max_floor]
         if floor:
             for house in floor:
                 House.display_info_house(house)
         else:
             print(f"There aren't any flats on such floors.")
         print("*****")
+
 
 all_houses = [
     House(24, 80, 2, 2, "ул. Плеханова", "панельный", 15),
@@ -110,12 +114,11 @@ all_houses = [
     House(32, 54, 4, 2, "ул. Плеханова", "кирпичный", 9),
     House(16, 90, 7, 4, "ул. Маркса", "кирпичный", 10),
     House(76, 72, 5, 3, "ул. Маркса", "монолит", 3)
-    ]
+]
 
-
-rooms_count = int (input("Enter number of rooms: "))
+rooms_count = int(input("Enter number of rooms: "))
 House.display_houses_by_room_qty(all_houses, rooms_count)
 
-min_floor = int (input("Enter minFloor: "))
-max_floor = int (input("Enter maxFloor: "))
+min_floor = int(input("Enter minFloor: "))
+max_floor = int(input("Enter maxFloor: "))
 House.display_flats_by_floor_and_qty_rooms(all_houses, rooms_count, min_floor, max_floor)
