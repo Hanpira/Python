@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block main %}
+    {% if user.is_staff %}
+        {% if message %}
+            <p class="alert alert-success">
+                <strong>{{ message }}</strong>
+            </p>
+        {% endif %}
+        <div class="card mb-3">
+        <div class="card-body">
+        <form action="../post_plant/" method="post">
+            {% csrf_token %}
+            <h5>Add plant:</h5>
+            <div class="mb-3">
+                <input class="form-control"
+                       placeholder="Plant name"
+                       name="text1"
+                       required/>
+                </br>
+                <input class="form-control"
+                       placeholder="Plant type"
+                       name="text"
+                       required/>
+                </br>
+                <input class="form-control"
+                       placeholder="Quantity of plants"
+                       name="number"
+                       required/>
+                </br>
+            </div>
+            <div class="card mb-3">
+                                   
+                    <button class="btn btn-success">
+                        Save
+                    </button>
+            </div>
+                <input type="hidden"
+                    name="plant_id"
+                    value="0"/>
+        </form>
+    </div>
+    </div>
+    <div class="card mb-3">
+    <div class="card-body">
+    <h4 class="card-title">Available Plants</h4>
+    {% if latest_plants %}
+        <ul>
+            {% for plant in latest_plants %}
+                <li>
+                    <a href="/plant/{{ plant.id }}/">
+                            {{ plant.plant_name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No plants are available right now.</p>
+        {% endif %}
+    </div>
+    </div>
+
+        
+    {% else %}
+        <h4>Access denied.</h4>
+    {% endif %}
+{% endblock %}    

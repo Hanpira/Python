@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block main %}
+<h1>{{ plant.plant_name }}</h1>
+<p>    <strong>{{ method }}</strong>    </p>
+{% if error_message %}
+    <p>
+        <strong>{{ error_message }}</strong>
+    </p>
+{% endif %}
+    {% csrf_token %}
+    <p>Plant type:  {{plant.plant_type}}</p>
+    <p>Quantity: {{plant.plant_number}}</p>
+    <br>
+    <input type="button" onclick="history.back()" value="Back" />
+{% endblock %}

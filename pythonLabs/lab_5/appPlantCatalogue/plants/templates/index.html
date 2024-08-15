@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block main %}
+    <h4 class="card-title">Available Plants</h4>
+    {% if message %}
+        <p class="alert alert-success">
+            <strong>{{ message }}</strong>
+        </p>
+    {% endif %}
+    {% if latest_plants %}
+    <ul>
+        {% for plant in latest_plants %}
+            <li>
+                <a href="/plants/{{ plant.id }}/">
+                    {{ plant.plant_name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No plants are available right now.</p>
+{% endif %}
+{% endblock %}
